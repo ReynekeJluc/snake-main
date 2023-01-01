@@ -1,6 +1,6 @@
 const config = {
 	step: 0,
-	maxStep: 2,
+	maxStep: 6,
 	sizeCell: 16,
 	sizeBerry: 16/4
 };
