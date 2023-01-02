@@ -1,13 +1,13 @@
 const config = {
 	step: 0,
 	maxStep: 6,
-	sizeCell: 16,
-	sizeBerry: 16/4
+	sizeCell: 32,
+	sizeBerry: 32 / 4
 };
 
 const snake = {
-	x: 16,
-	y: 16,
+	x: 32,
+	y: 32,
 	dx: config.sizeCell,
 	dy: 0,
 	tails: [],
@@ -56,12 +56,12 @@ function drawSnake() {
 		}
 		context.fillRect(el.x, el.y, config.sizeCell, config.sizeCell);
 
-		if ( el.x === berry.x && el.y === berry.y ) {
+		if (el.x === berry.x && el.y === berry.y) {
 			snake.maxTails++;
 			randomPositionBerry();
 		}
 
-		for( let i = index + 1; i < snake.tails.length; i++ ) {
+		for(let i = index + 1; i < snake.tails.length; i++) {
 
 			if (el.x == snake.tails[i].x && el.y == snake.tails[i].y) {
 				refreshGame();
@@ -75,20 +75,20 @@ function drawSnake() {
 function collisionBorder() {
 	if(snake.x < 0) {
 		snake.x = canvas.width - config.sizeCell;
-	}else if (snake.x > canvas.width) {
+	} else if (snake.x > canvas.width) {
 		snake.x = 0;
 	}
 
 	if(snake.y < 0) {
 		snake.y = canvas.height - config.sizeCell;
-	}else if (snake.y > canvas.height) {
+	} else if (snake.y > canvas.height) {
 		snake.y = 0;
 	}
 }
 
 function refreshGame() {
-	snake.x = 16;
-	snake.y = 16;
+	snake.x = 32;
+	snake.y = 32;
 	snake.tails = [];
 	snake.maxTails = 3;
 	snake.dx = config.sizeCell;
@@ -114,22 +114,17 @@ function randomPositionBerry() {
 }
 
 document.addEventListener('keydown', function(e) {
-	switch (e.code) {
-		case 'KeyW': 
-			snake.dy = -config.sizeCell; 
-			snake.dx = 0; 
-			break;
-		case 'KeyS': 
-			snake.dy = config.sizeCell; 
-			snake.dx = 0; 
-			break;
-		case 'KeyA': 
-			snake.dx = -config.sizeCell; 
-			snake.dy = 0; 
-			break;
-		case 'KeyD': 
-			snake.dx = config.sizeCell; 
-			snake.dy = 0; 
-			break;
-	}
+	if (e.code == "KeyW" && snake.dy == 0) {
+		snake.dy = -config.sizeCell;
+		snake.dx = 0;
+	} else if (e.code == "KeyA" && snake.dx == 0) {
+		snake.dx = -config.sizeCell;
+		snake.dy = 0;
+	} else if (e.code == "KeyS" && snake.dy == 0) {
+		snake.dy = config.sizeCell;
+		snake.dx = 0;
+	} else if (e.code == "KeyD" && snake.dx == 0) {
+		snake.dx = config.sizeCell;
+		snake.dy = 0;
+	}	
 });
