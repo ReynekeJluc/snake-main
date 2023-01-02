@@ -62,7 +62,7 @@ window.onload = function() {
 			if (el.x === berry.x && el.y === berry.y) {
 				snake.maxTails++;
 				berry.count++;
-
+				
 				if(berry.count % 7 == 0 && config.maxStep > 1) {
 					config.maxStep--;
 				}
@@ -102,7 +102,8 @@ window.onload = function() {
 		snake.maxTails = 3;
 		snake.dx = config.sizeCell;
 		snake.dy = 0;
-		
+
+		berry.count = 0;
 		config.maxStep = 6;
 		
 		randomPositionBerry();
