@@ -102,7 +102,9 @@ window.onload = function() {
 		snake.maxTails = 3;
 		snake.dx = config.sizeCell;
 		snake.dy = 0;
-
+		
+		config.maxStep = 6;
+		
 		randomPositionBerry();
 	}
 
