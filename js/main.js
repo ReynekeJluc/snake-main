@@ -18,7 +18,8 @@ window.onload = function() {
 
 	let berry = {
 		x: 0,
-		y: 0
+		y: 0,
+		count: 0
 	};
 
 	let canvas = document.querySelector('canvas');
@@ -42,11 +43,11 @@ window.onload = function() {
 	function drawSnake() {	
 		snake.x += snake.dx;
 		snake.y += snake.dy;
-
+		
 		collisionBorder();
 		snake.tails.unshift( { x: snake.x, y: snake.y } );
 
-		if ( snake.tails.length > snake.maxTails ) {
+		if (snake.tails.length > snake.maxTails) {
 			snake.tails.pop();
 		}
 
@@ -60,9 +61,14 @@ window.onload = function() {
 
 			if (el.x === berry.x && el.y === berry.y) {
 				snake.maxTails++;
+				berry.count++;
+
+				if(berry.count % 7 == 0 && config.maxStep > 1) {
+					config.maxStep--;
+				}
+
 				randomPositionBerry();
 			}
-
 			for(let i = index + 1; i < snake.tails.length; i++) {
 
 				if (el.x == snake.tails[i].x && el.y == snake.tails[i].y) {
@@ -73,6 +79,7 @@ window.onload = function() {
 
 		});
 	}
+	
 
 	function collisionBorder() {
 		if(snake.x < 0) {
