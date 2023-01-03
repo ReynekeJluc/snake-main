@@ -74,24 +74,22 @@ window.onload = function() {
 				if (el.x == snake.tails[i].x && el.y == snake.tails[i].y) {
 					refreshGame();
 				}
-
 			}
-
 		});
 	}
 	
 
 	function collisionBorder() {
 		if(snake.x < 0) {
-			snake.x = canvas.width - config.sizeCell;
+			refreshGame();
 		} else if (snake.x > canvas.width) {
-			snake.x = 0;
+			refreshGame();
 		}
 
 		if(snake.y < 0) {
-			snake.y = canvas.height - config.sizeCell;
+			refreshGame();
 		} else if (snake.y > canvas.height) {
-			snake.y = 0;
+			refreshGame();
 		}
 	}
 
@@ -117,7 +115,7 @@ window.onload = function() {
 	}
 
 	function getRandomInt(min, max) {
-		return Math.floor( Math.random() * (max-min) + min);
+		return Math.floor( Math.random() * (max - min) + min);
 	}
 
 	function randomPositionBerry() {
@@ -140,5 +138,7 @@ window.onload = function() {
 			snake.dy = 0;
 		}	
 	});
+
+	
 
 };
