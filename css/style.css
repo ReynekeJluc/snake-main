@@ -85,3 +85,14 @@ canvas {
 	border: 1px solid #000;
 	background: url(../img/bg.jpg) repeat;
 }
+
+.score {
+	width: 100px;
+	height: 60px;
+	background: rgb(149, 104, 41);
+	border: 1px solid #000;
+	margin-right: 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
