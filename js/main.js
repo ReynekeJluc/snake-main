@@ -22,8 +22,6 @@ window.onload = function() {
 		count: 0
 	};
 
-	let score = 0;
-
 	let canvas = document.querySelector('canvas');
 	let context = canvas.getContext('2d');
 
@@ -111,11 +109,6 @@ window.onload = function() {
 
 		berry.count = 0;
 		config.maxStep = 6;
-
-		score = 0;
-		
-		// score_inner.remove();
-		// score_table.append(score);
 		
 		randomPositionBerry();
 	}
@@ -155,11 +148,5 @@ window.onload = function() {
 			snake.dy = 0;
 		}	
 	});
-
-	const score_table = document.createElement('div');
-	score_table.className = 'score';
-	const score_inner = score_table.createElement('div');   // здесь ошибка
-
-	document.body.querySelector('.cvs-wrapper').prepend(score_table);
 
 };
