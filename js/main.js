@@ -111,11 +111,14 @@ window.onload = function() {
 
 		berry.count = 0;
 		config.maxStep = 6;
+<<<<<<< HEAD
 
 		score = 0;
 		
 		// score_inner.remove();
 		// score_table.append(score);
+=======
+>>>>>>> 81df1210163e805f12fdce3ede4440178deb1d35
 		
 		randomPositionBerry();
 	}
