@@ -2,7 +2,7 @@ window.onload = function() {
 
 	const config = {
 		step: 0,
-		maxStep: 1,
+		maxStep: 6,
 		sizeCell: 32,
 		sizeBerry: 32 / 4
 	};
