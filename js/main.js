@@ -108,7 +108,7 @@ window.onload = function() {
 		snake.dy = 0;
 
 		berry.count = 0;
-		config.maxStep = 1;
+		config.maxStep = 6;
 		
 		randomPositionBerry();
 	}
