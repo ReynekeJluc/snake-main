@@ -2,7 +2,7 @@ window.onload = function() {
 
 	const config = {
 		step: 0,
-		maxStep: 1,
+		maxStep: 6,
 		sizeCell: 32,
 		sizeBerry: 32 / 4
 	};
@@ -21,6 +21,8 @@ window.onload = function() {
 		y: 0,
 		count: 0
 	};
+
+	let score = 0;
 
 	let canvas = document.querySelector('canvas');
 	let context = canvas.getContext('2d');
@@ -108,7 +110,12 @@ window.onload = function() {
 		snake.dy = 0;
 
 		berry.count = 0;
-		config.maxStep = 1;
+		config.maxStep = 6;
+
+		score = 0;
+		
+		// score_inner.remove();
+		// score_table.append(score);
 		
 		randomPositionBerry();
 	}
@@ -148,5 +155,11 @@ window.onload = function() {
 			snake.dy = 0;
 		}	
 	});
+
+	const score_table = document.createElement('div');
+	score_table.className = 'score';
+	const score_inner = score_table.createElement('div');   // здесь ошибка
+
+	document.body.querySelector('.cvs-wrapper').prepend(score_table);
 
 };
