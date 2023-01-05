@@ -2,7 +2,7 @@ window.onload = function() {
 
 	const config = {
 		step: 0,
-		maxStep: 6,
+		maxStep: 1,
 		sizeCell: 32,
 		sizeBerry: 32 / 4
 	};
@@ -110,8 +110,8 @@ window.onload = function() {
 		snake.dy = 0;
 
 		berry.count = 0;
-		config.maxStep = 6;
-		
+		config.maxStep = 1;
+
 		randomPositionBerry();
 	}
 
