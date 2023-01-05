@@ -2,7 +2,7 @@ window.onload = function() {
 
 	const config = {
 		step: 0,
-		maxStep: 6,
+		maxStep: 1,
 		sizeCell: 32,
 		sizeBerry: 32 / 4
 	};
@@ -37,6 +37,8 @@ window.onload = function() {
 
 		drawBerry();
 		drawSnake();
+
+		drawScore();
 	}
 	requestAnimationFrame( gameLoop );
 
@@ -62,7 +64,11 @@ window.onload = function() {
 			if (el.x === berry.x && el.y === berry.y) {
 				snake.maxTails++;
 				berry.count++;
+
+				score++;
 				
+				// score_table.append(score_inner);
+
 				if(berry.count % 7 == 0 && config.maxStep > 1) {
 					config.maxStep--;
 				}
@@ -102,7 +108,7 @@ window.onload = function() {
 		snake.dy = 0;
 
 		berry.count = 0;
-		config.maxStep = 6;
+		config.maxStep = 1;
 		
 		randomPositionBerry();
 	}
@@ -112,6 +118,10 @@ window.onload = function() {
 		context.fillStyle = "#A00034";
 		context.arc(berry.x + (config.sizeCell / 2), berry.y + (config.sizeCell / 2), config.sizeBerry, 0, 2 * Math.PI);
 		context.fill();
+	}
+
+	function drawScore() {
+		
 	}
 
 	function getRandomInt(min, max) {
@@ -138,7 +148,5 @@ window.onload = function() {
 			snake.dy = 0;
 		}	
 	});
-
-	
 
 };
