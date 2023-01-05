@@ -150,11 +150,5 @@ window.onload = function() {
 			snake.dy = 0;
 		}	
 	});
-
-	const score_table = document.createElement('div');
-	score_table.className = 'score';
-	const score_inner = score_table.createElement('div');   // здесь ошибка
-
-	document.body.querySelector('.cvs-wrapper').prepend(score_table);
-
+	
 };
